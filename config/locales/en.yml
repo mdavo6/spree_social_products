@@ -2,7 +2,7 @@
 en:
   spree:
     social:
-      bookmark_or_share_this: Bookmark or Share this
+      bookmark_or_share_this: Bookmark or Share
       social_sharing_settings_description: Enable or disable sharing to these networks on product pages
       social_sharing_settings_updated: Sharing settings have been successfully updated.
       settings: Social Sharing Settings
