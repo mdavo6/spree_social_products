@@ -10,7 +10,7 @@ module Spree
       link_to('Pin It',
               "https://pinterest.com/pin/create/button/?url=#{url}&media=#{media}&description=#{description}",
               class: 'pin-it-button',
-              'count-layout' => 'none').html_safe
+              'count-layout' => 'none', data: { 'pin-do': "buttonBookmark"}).html_safe
     end
 
     def absolute_product_image(image)
