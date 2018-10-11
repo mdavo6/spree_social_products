@@ -12,10 +12,20 @@
 
   <div
     class="fb-like"
-    data-send="<%= Spree::Social::Config.preferred_facebook_send_button %>"
-    data-width="450"
-    data-show-faces="<%= Spree::Social::Config.preferred_facebook_show_faces %>"
+    data-href="<%= spree.product_url(@product) %>"
     data-layout="<%= Spree::Social::Config.preferred_facebook_layout %>"
-    data-colorscheme="<%= Spree::Social::Config.preferred_facebook_color_scheme %>"
-    data-action="<%= Spree::Social::Config.preferred_facebook_verb_to_display %>"></div>
+    data-action="<%= Spree::Social::Config.preferred_facebook_verb_to_display %>"
+    data-show-faces="<%= Spree::Social::Config.preferred_facebook_show_faces %>"
+    data-share="<%= Spree::Social::Config.preferred_facebook_send_button %>"
+    data-width="450"
+    data-colorscheme="<%= Spree::Social::Config.preferred_facebook_color_scheme %>">
+  </div>
+
+  <div
+    class="fb-send"
+    data-href="<%= spree.product_url(@product) %>"
+    data-layout="<%= Spree::Social::Config.preferred_facebook_layout %>"
+    data-colorscheme="<%= Spree::Social::Config.preferred_facebook_color_scheme %>">
+  </div>
+
 <% end %>
