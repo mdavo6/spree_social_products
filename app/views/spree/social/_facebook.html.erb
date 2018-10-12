@@ -1,5 +1,5 @@
 <% unless Spree::Social::Config.preferred_facebook_app_id.nil? %>
-  <% content_for :head do %>
+  <% content_for :og_tags do %>
     <meta property="og:title" content="<%= @product.name %>" />
     <meta property="og:type" content="product" />
     <meta property="og:url" content="<%= spree.product_url(@product) %>" />
