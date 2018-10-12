@@ -8,6 +8,15 @@
       <meta property="og:image" content="<%= absolute_image_url(img.attachment.url) %>" />
     <% end %>
     <meta property="fb:app_id" content="<%= Spree::Social::Config.preferred_facebook_app_id %>" />
+    <meta property="og:site_name" content="<%= current_store.name %>" />
+    <!-- <meta property="og:brand" content="BoldB" />
+    <meta property="product:price:amount" content="<%= spree.display_price(@product) %>" />
+    <meta property="product:price:currency" content="<%= current_currency %>" />
+    <% if @product.master.can_supply? %>
+      <meta property="og:availability" content="instock" />
+    <% elsif @product.variants.empty? %>
+      <meta property="og:availability" content="out of stock" />
+    <% end %> -->
   <% end %>
 
   <div
