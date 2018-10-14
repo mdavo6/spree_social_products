@@ -1,5 +1,29 @@
 module Spree
   BaseHelper.module_eval do
+
+    def open_graph_data
+      object = instance_variable_get('@'+controller_name.singularize)
+      og = {}
+
+      if object.kind_of? Spree::Product
+        og[:title] = @product.name
+        og[:type] = "product"
+        og[:url] = spree.product_url(@product)
+        og[:description] = @product.description
+        @product.images.each do |img|
+          og[:image] = absolute_image_url(img.attachment.url)
+        end
+        og[:site_name] = current_store.name
+      end
+      og
+    end
+
+    def open_graph_tags
+      open_graph_data.map do |name, content|
+        tag('meta', property: "og:#{name}", content: content)
+      end.join("\n")
+    end
+
     def pin_it_button(product)
       return if product.images.empty?
 

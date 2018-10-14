@@ -1,16 +1,4 @@
 <% unless Spree::Social::Config.preferred_facebook_app_id.nil? %>
-  <% content_for :og_tags do %>
-    <meta property="og:title" content="<%= @product.name %>" />
-    <meta property="og:type" content="product" />
-    <meta property="og:url" content="<%= spree.product_url(@product) %>" />
-    <meta property="og:description" content="<%= @product.description %>" />
-    <% @product.images.each do |img| %>
-      <meta property="og:image" content="<%= absolute_image_url(img.attachment.url) %>" />
-    <% end %>
-    <meta property="fb:app_id" content="<%= Spree::Social::Config.preferred_facebook_app_id %>" />
-    <meta property="og:site_name" content="<%= current_store.name %>" />
-  <% end %>
-
   <div
     class="fb-like"
     data-href="<%= spree.product_url(@product) %>"
@@ -21,5 +9,4 @@
     data-width="450"
     data-colorscheme="<%= Spree::Social::Config.preferred_facebook_color_scheme %>">
   </div>
-
 <% end %>
