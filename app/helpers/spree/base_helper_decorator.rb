@@ -10,9 +10,6 @@ module Spree
         og[:type] = "product"
         og[:url] = spree.product_url(@product)
         og[:description] = @product.description
-        @product.images.each do |img|
-          og[:image] = absolute_image_url(img.attachment.url)
-        end
         og[:site_name] = current_store.name
       end
       og
@@ -21,6 +18,24 @@ module Spree
     def open_graph_tags
       open_graph_data.map do |name, content|
         tag('meta', property: "og:#{name}", content: content)
+      end.join("\n")
+    end
+
+    def open_graph_image_data
+      object = instance_variable_get('@'+controller_name.singularize)
+      images = {}
+
+      if object.kind_of? Spree::Product
+        @product.images.each_with_index do |img, index|
+          images[index] = absolute_image_url(img.attachment.url)
+        end
+      end
+      images
+    end
+
+    def open_graph_image_tags
+      open_graph_image_data.map do |index, img|
+        tag('meta', property: "og:image", content: img)
       end.join("\n")
     end
 
