@@ -39,6 +39,10 @@ module Spree
       end.join("\n")
     end
 
+    def fb_app_id
+      tag('meta', property: "fb:app_id", content: Spree::Social::Config.preferred_facebook_app_id) if Spree::Social::Config.preferred_facebook_app_id.present?
+    end
+
     def pin_it_button(product)
       return if product.images.empty?
 
