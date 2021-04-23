@@ -57,7 +57,7 @@ module Spree
     end
 
     def absolute_product_image(image)
-      escape url_for(image.url(:product))
+      main_app.url_for(image.url(:product))
     end
 
     def absolute_image_url(url)
