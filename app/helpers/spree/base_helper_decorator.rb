@@ -27,7 +27,7 @@ module Spree
 
       if object.kind_of? Spree::Product
         @product.images.each_with_index do |img, index|
-          images[index] = absolute_image_url(img.attachment.url)
+          images[index] = main_app.url_for(image.url(:product))
         end
       end
       images
